@@ -1,0 +1,22 @@
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th {
+  padding: 16px 8px;
+  border-bottom: 2px solid #c7c7c7;
+}
+
+td {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 8px;
+  vertical-align: top;
+}

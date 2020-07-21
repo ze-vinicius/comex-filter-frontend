@@ -1,0 +1,87 @@
+.home {
+  display: flex;
+  justify-content: center;
+  background-color: #27BA67;
+}
+
+.modal {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal:focus {
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalDescription {
+  font-size: 12px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.groupFilterContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  width: 900px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.filterContainer {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.filterTitle {
+  margin: 0 0 32px 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.filterSubtitle {
+  font-size: 11px;
+  color: #727573;
+  margin: 0 0 16px 0;
+}
+
+.toolbar {
+  display: flex;
+  border-radius: 4px;
+  padding: 16px;
+  background-color: #0C3B20;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin-right: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}
+.btn:hover {
+  opacity: 0.9;
+}
