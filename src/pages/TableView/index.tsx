@@ -1,6 +1,6 @@
 import React, { useEffect, ReactElement } from 'react';
 import { Location } from 'history';
-import { StaticContext } from 'react-router';
+import { StaticContext, useHistory } from 'react-router';
 import { RouteComponentProps } from 'react-router-dom';
 import Table from '../../components/Table';
 import './style.css';
@@ -36,10 +36,17 @@ type LocationState = {
 }
 
 export default function TableView(props: RouteComponentProps<{}, StaticContext, LocationState>,): ReactElement {
+
   const [tableData, setTableData] = React.useState<TableItem[]>()
+  const history = useHistory();
+
   useEffect(() => {
-    setTableData(props.location.state.tableData)
-    console.log(props.location.state.tableData);
+    if (props.location.state) {
+      console.log(props.location.state.tableData);
+      setTableData(props.location.state.tableData)
+    } else {
+      history.push("/");
+    }
   }, [])
 
   return (

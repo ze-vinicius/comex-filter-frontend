@@ -146,7 +146,7 @@ export default function Home() {
     setSelectedAggOptions(newValue)
   }
 
-  const fetchDataTable = () => {
+  const fetchDataTable = async () => {
     let tableName = '';
     console.log(selectedRegUnitOptions)
     if (selectedTableOptions && selectedTableOptions.value == 1) tableName = 'imports';
@@ -170,18 +170,18 @@ export default function Home() {
     let uri = `http://127.0.0.1:8000/${tableName}?${query.join('&')}`
     console.log(uri)
 
-    fetch(uri).then(resp => resp.json()).then(data => {
+    return fetch(uri).then(resp => resp.json()).then(data => {
       // setTableData(data)
-      setTableData(data)
-      handleCloseModal();
-      // history.push({ pathname: "/table/view", state: { tableData: data } })
+      // setTableData(data)
+      return data;
+      // handleCloseModal();
     })
   }
 
-  const handleSubmitShow = () => {
+  const handleSubmitShow = async () => {
     handleOpenModal();
-    fetchDataTable();
-    history.push({ pathname: "/table/view", state: { tableData: tableData } })
+    const dataTable = await fetchDataTable();
+    history.push({ pathname: "/table/view", state: { tableData: dataTable } })
     // setTimeout(() => {
     // }, 2000)
   }
@@ -260,12 +260,7 @@ export default function Home() {
           <button className="btn" onClick={handleSubmitShow}>Visualizar</button>
 
           <button className="btn" onClick={handleSubmitDownload}>Download</button>
-          <CSVLink
-            data={tableData}
-            ref={csvLinkRef}
-          >
-            Download
-          </CSVLink>
+
           {/* {tableData &&
             <CSVDownloader
               datas={[]}
